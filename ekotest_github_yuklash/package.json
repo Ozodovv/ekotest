@@ -1,0 +1,16 @@
+{
+  "name": "ekotest",
+  "version": "0.2.0",
+  "description": "Ekologiya bo'yicha ro'yxatdan o'tish, test va daraja aniqlash tizimi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.11.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

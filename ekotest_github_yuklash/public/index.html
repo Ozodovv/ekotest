@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#E8EFED">
+<meta name="description" content="EkoTest: maktab o'quvchilari uchun ekologiya bo'yicha onlayn test. Ro'yxatdan o'ting va bilim darajangizni aniqlang.">
+<meta property="og:title" content="EkoTest — ekologiya bo'yicha onlayn test">
+<meta property="og:description" content="22 ta savol, 11 mavzu. Ekologik bilim darajangizni bepul aniqlang.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B2A2D'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23E8EFED' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='3.2' fill='%23D63A2B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<title>EkoTest — tabiat haqida qancha bilasiz?</title>
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+<script src="api.js"></script>
+</head>
+<body>
+<canvas id="topo" aria-hidden="true"></canvas>
+<header class="top"><div class="wrap">
+  <a class="brand" href="./"><svg viewBox="0 0 32 32" fill="none" stroke="#0B2A2D" stroke-width="1.3" aria-hidden="true"><path d="M16 3c7 1 12 6 12 13s-5 13-12 13S4 24 4 16 9 4 16 3z"/><path d="M16 8c4 1 7 4 7 8s-3 8-7 8-7-4-7-8 3-7 7-8z"/><circle cx="16" cy="16" r="2.6" fill="#D63A2B" stroke="none"/></svg>EkoTest</a>
+  <span class="note">Maktab o'quvchilari uchun</span>
+</div></header>
+
+<main class="wrap hero">
+  <section class="rise">
+    <p class="eyebrow">Ekologiya bo'yicha onlayn test</p>
+    <h1>Tabiat haqida <em>qancha</em> bilasiz?</h1>
+    <p class="lead">Ro'yxatdan o'ting va ekologiya bo'yicha qisqa test ishlang. Natija darhol chiqadi va qaysi mavzuda kuchli ekaningizni ko'rsatadi.</p>
+    <div class="facts">
+      <div><b>22</b><span>ta savol</span></div>
+      <div><b>11</b><span>mavzu</span></div>
+      <div><b>~8</b><span>daqiqa</span></div>
+    </div>
+  </section>
+
+  <section class="panel rise d2" aria-labelledby="rt" id="reg">
+    <h2 id="rt">Ro'yxatdan o'tish</h2>
+    <p class="sub">Test boshlanishidan oldin o'zingiz haqingizda yozing.</p>
+    <form id="f" autocomplete="off">
+      <div class="row2">
+        <div><label for="ism">Ism</label><input id="ism" maxlength="40" required></div>
+        <div><label for="familya">Familya</label><input id="familya" maxlength="40" required></div>
+      </div>
+      <label for="viloyat">Viloyat</label>
+      <select id="viloyat" required><option value="">Yuklanmoqda…</option></select>
+      <label for="tuman">Tuman yoki shahar</label>
+      <select id="tuman" required disabled><option value="">Avval viloyatni tanlang</option></select>
+      <label for="maktab">Maktab yoki IDUM</label>
+      <input id="maktab" maxlength="80" placeholder="Masalan: 25-maktab yoki 1-IDUM" required>
+      <button class="full" id="go">Testni boshlash <span aria-hidden="true">→</span></button>
+      <div class="err" id="err" role="alert"></div>
+    </form>
+  </section>
+</main>
+
+<section class="topics" aria-labelledby="tt">
+  <div class="wrap">
+    <h2 id="tt" class="sect">Test mavzulari</h2>
+    <div class="grid">
+      <article><i>01</i><h3>Suv resurslari</h3><p>Orol, daryolar va ichimlik suvini tejash.</p></article>
+      <article><i>02</i><h3>Havo va iqlim</h3><p>Havo sifati, isish va uning sabablari.</p></article>
+      <article><i>03</i><h3>Chiqindilar bilan ishlash</h3><p>Saralash, qayta ishlash va kamaytirish.</p></article>
+      <article><i>04</i><h3>Biologik xilma-xillik</h3><p>Hayvonlar, o'simliklar va ularni asrash.</p></article>
+      <article><i>05</i><h3>Tuproq va yer resurslari</h3><p>Eroziya, sho'rlanish va unumdorlik.</p></article>
+      <article><i>06</i><h3>O'rmonlar va yashil hududlar</h3><p>Daraxtlar, saksovul va ko'kalamzorlashtirish.</p></article>
+      <article><i>07</i><h3>Energiya va uni tejash</h3><p>Quyosh, shamol va energiya tejash usullari.</p></article>
+      <article><i>08</i><h3>Ekologiya asoslari</h3><p>Ekotizim, oziq zanjiri va biosfera.</p></article>
+      <article><i>09</i><h3>O'zbekiston tabiati</h3><p>Qo'riqxonalar, Qizil kitob va cho'llar.</p></article>
+      <article><i>10</i><h3>Ekologiya va salomatlik</h3><p>Toza havo, suv va xavfsiz hayot tarzi.</p></article>
+      <article><i>11</i><h3>Ekologik madaniyat</h3><p>Xalqaro kelishuvlar va barqaror rivojlanish.</p></article>
+      <a class="cta" href="#reg" id="cta"><span>Tayyormisiz?</span><b>Testni boshlash <span aria-hidden="true">→</span></b></a>
+    </div>
+  </div>
+</section>
+<footer><div class="wrap">EkoTest. Savollar har safar o'zgaradi, mavzular bir xil qoladi.</div></footer>
+<noscript><p style="padding:20px;text-align:center">Sayt ishlashi uchun brauzerda JavaScript yoqilgan bo'lishi kerak.</p></noscript>
+<script src="topo.js"></script>
+<script>
+const $=id=>document.getElementById(id);let R={};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fill=(el,ph,list)=>{el.innerHTML='<option value="">'+ph+'</option>'+list.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join('');};
+API.regions().then(d=>{R=d||{};if(!Object.keys(R).length)throw 0;fill($('viloyat'),'Viloyatni tanlang',Object.keys(R));}).catch(()=>{$('viloyat').innerHTML='<option value="">Ro\'yxat yuklanmadi, sahifani yangilang</option>';});
+$('viloyat').onchange=()=>{const t=$('tuman'),v=R[$('viloyat').value]||[];fill(t,v.length?'Tumanni tanlang':'Avval viloyatni tanlang',v);t.disabled=!v.length;};
+$('cta').onclick=e=>{e.preventDefault();$('reg').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});$('ism').focus({preventScroll:true});};
+const reset=()=>{const b=$('go');b.disabled=false;b.innerHTML='Testni boshlash <span aria-hidden="true">→</span>';};
+$('f').onsubmit=async e=>{e.preventDefault();$('err').textContent='';const b=$('go');b.disabled=true;b.textContent='Yuklanmoqda…';
+ const body={ism:$('ism').value.trim(),familya:$('familya').value.trim(),viloyat:$('viloyat').value,tuman:$('tuman').value,maktab:$('maktab').value.trim()};
+ if(!Object.values(body).every(Boolean)){$('err').textContent='Barcha maydonlarni to\'ldiring.';reset();return;}
+ try{const {ok,d}=await API.register(body);
+  if(!ok||!d.userId){$('err').textContent=d.xato||'Ro\'yxatdan o\'tmadi. Qayta urinib ko\'ring.';reset();return;}
+  sessionStorage.setItem('userId',d.userId);location.href='test.html';
+ }catch(x){$('err').textContent='Serverga ulanib bo\'lmadi. Internetni tekshirib, qayta urinib ko\'ring.';reset();}};
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: ekotest
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: ADMIN_LOGIN
+        value: admin
+      - key: ADMIN_PASS      # Blueprint yaratishda so'raladi; o'zingiz kuchli parol kiriting
+        sync: false
+      - key: ADMIN_PATH
+        value: /boshqaruv-x7k2
+      - key: DATABASE_URL    # Neon "Connection string" (postgresql://...)
+        sync: false

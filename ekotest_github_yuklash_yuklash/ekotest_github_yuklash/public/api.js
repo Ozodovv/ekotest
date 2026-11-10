@@ -10,7 +10,13 @@
   const PER_TOPIC = 2, QUIZ_N = 8;
   const attempts = {}, quizzes = {};
   const levelOf = (p) => (p >= 85 ? "Yuqori" : p >= 60 ? "O'rta" : "Boshlang'ich");
-  const req = async (path, opt) => { const r = await fetch(BASE + path, opt); let d = {}; try { d = await r.json(); } catch (e) {} return { ok: r.ok, d }; };
+  // 25 soniyada javob kelmasa so'rov bekor qilinadi (sahifa abadiy "yuklanmoqda" da qotib qolmasligi uchun) va sahifadagi xato xabari chiqadi
+  const req = async (path, opt) => {
+    const ac = typeof AbortController !== "undefined" ? new AbortController() : null;
+    const tm = ac ? setTimeout(() => ac.abort(), 25000) : 0;
+    try { const r = await fetch(BASE + path, Object.assign({}, opt, ac ? { signal: ac.signal } : {})); let d = {}; try { d = await r.json(); } catch (e) {} return { ok: r.ok, d }; }
+    finally { clearTimeout(tm); }
+  };
   const post = (path, body) => req(path, { method: "POST", headers: J, body: JSON.stringify(body) });
   const err = (xato, extra) => ({ ok: false, d: Object.assign({ xato }, extra || {}) });
 
